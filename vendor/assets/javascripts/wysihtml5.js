@@ -4764,39 +4764,39 @@ wysihtml5.dom.parse = (function() {
    * Iterates over all childs of the element, recreates them, appends them into a document fragment
    * which later replaces the entire body content
    */
-  // function parse(elementOrHtml, rules, context, cleanUp) {
-  //   wysihtml5.lang.object(currentRules).merge(defaultRules).merge(rules).get();
+  function parse(elementOrHtml, rules, context, cleanUp) {
+    wysihtml5.lang.object(currentRules).merge(defaultRules).merge(rules).get();
 
-  //   context           = context || elementOrHtml.ownerDocument || document;
-  //   var fragment      = context.createDocumentFragment(),
-  //       isString      = typeof(elementOrHtml) === "string",
-  //       element,
-  //       newNode,
-  //       firstChild;
+    context           = context || elementOrHtml.ownerDocument || document;
+    var fragment      = context.createDocumentFragment(),
+        isString      = typeof(elementOrHtml) === "string",
+        element,
+        newNode,
+        firstChild;
 
-  //   if (isString) {
-  //     element = wysihtml5.dom.getAsDom(elementOrHtml, context);
-  //   } else {
-  //     element = elementOrHtml;
-  //   }
+    if (isString) {
+      element = wysihtml5.dom.getAsDom(elementOrHtml, context);
+    } else {
+      element = elementOrHtml;
+    }
 
-  //   while (element.firstChild) {
-  //     firstChild  = element.firstChild;
-  //     element.removeChild(firstChild);
-  //     newNode = _convert(firstChild, cleanUp);
-  //     if (newNode) {
-  //       fragment.appendChild(newNode);
-  //     }
-  //   }
+    while (element.firstChild) {
+      firstChild  = element.firstChild;
+      element.removeChild(firstChild);
+      newNode = _convert(firstChild, cleanUp);
+      if (newNode) {
+        fragment.appendChild(newNode);
+      }
+    }
 
-  //   // Clear element contents
-  //   element.innerHTML = "";
+    // Clear element contents
+    element.innerHTML = "";
 
-  //   // Insert new DOM tree
-  //   element.appendChild(fragment);
+    // Insert new DOM tree
+    element.appendChild(fragment);
 
-  //   return isString ? wysihtml5.quirks.getCorrectInnerHTML(element) : element;
-  // }
+    return elementOrHtml;
+  }
 
   function _convert(oldNode, cleanUp) {
     var oldNodeType     = oldNode.nodeType,
