@@ -174,14 +174,14 @@ module ActiveAdmin
         'figcaption' => {
           'rename_tag' => 'div'
         },
-        # 'a' => {
-        #   'check_attributes' => {
-        #     'href' => 'url' # if you compiled master manually then change this from 'url' to 'href'
-        #   },
-        #   'set_attributes' => {
-        #     'target' => '_blank'
-        #   }
-        # },
+        'a' => {
+          'check_attributes' => {
+            'href' => 'url' # if you compiled master manually then change this from 'url' to 'href'
+          },
+          'set_attributes' => {
+            'target' => '_blank'
+          }
+        },
         'img' => {
           'check_attributes' => {
             'width' => 'numbers',
