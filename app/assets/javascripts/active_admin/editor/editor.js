@@ -77,7 +77,7 @@
     this._editor = new wysihtml5.Editor(this.$textarea.attr('id'), {
       toolbar: this.$toolbar.attr('id'),
       stylesheets: config.stylesheets,
-      parserRules: ''
+      parserRules: '{}'
     })
   }
 
